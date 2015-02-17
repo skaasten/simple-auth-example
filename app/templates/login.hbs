@@ -1,1 +1,7 @@
-{{outlet}}
+<form {{ action "authenticate" on "submit" }}>
+   <label for="identification">Login</label>
+  {{view Ember.TextField id='identification' valueBinding='identification' placeholder=login}}
+  <label for="password">Password</label>
+  {{view Ember.TextField id='password' type='password' valueBinding='password' placeholder=password}}
+  <button class="btn-success" type="submit">Login</button>
+</form>
