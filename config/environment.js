@@ -18,8 +18,12 @@ module.exports = function(environment) {
       // when it is created
     }
   };
+  ENV['simple-auth'] = {
+      routeIfAlreadyAuthenticated: 'restricted'
+  };
   ENV['simple-auth-oauth2'] = {
-  serverTokenEndpoint: 'http://localhost:3000/oauth/token'
+      serverTokenEndpoint: 'http://localhost:3000/oauth/token',
+      serverTokenRevokationEndpoint: 'http://localhost:3000/oauth/token'
   };
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
@@ -33,7 +37,7 @@ module.exports = function(environment) {
     // Testem prefers this...
     ENV.baseURL = '/';
     ENV.locationType = 'none';
-
+}
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
